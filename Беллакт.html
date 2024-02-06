@@ -1,0 +1,543 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>ОАО "Беллакт"</title> 
+     
+    <style> 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        nav { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+            margin: 0 20px; 
+            transition: color 0.3s, background-color 0.3s, transform 0.3s; 
+            padding: 10px; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            display: inline-block; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        nav a:hover { 
+            color: #fff; 
+            background-color: #c00; 
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        } 
+ 
+        nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+         nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        .container { 
+            max-width: 800px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            border-radius: 10px; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px;
+margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+         
+    </style> 
+    
+</head> 
+<body> 
+ 
+<div class="container"> 
+    <header> 
+        <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style> 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0);
+opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px; 
+            margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+ 
+        .home-button { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            z-index: 1000; 
+        } 
+ 
+        .home-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+        .container { 
+            max-width: 800px; /* Максимальная ширина контейнера */ 
+            margin: 0 auto; /* Центрирование контейнера по горизонтали */ 
+            padding: 0 20px; /* Добавление отступов по бокам для красивого оформления */ 
+        } 
+        .text-justify { 
+            text-align: justify; /* Выравнивание текста по ширине */ 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<a href="index.html" class="home-button">Главная</a> 
+ 
+<div class="container"> 
+    <h1>ОАО "Беллакт"</h1> 
+    </header> 
+    <section> 
+        <h2></h2>
+<p class="text-justify">ОАО "Беллакт" начал основываться во второй половине XX века необходимость перехода от молочных кухонь в СССР к индустрии детского питания становилась все очевиднее. И тогда правительство страны приняло решение о создании новой отрасли производства. Этот масштабный проект находился под пристальным вниманием главы Советского Союза, Генерального секретаря ЦК КПСС Л.И. Брежнева.
+
+Для строительства трех заводов были определены города с хорошей экологической обстановкой, состоянием инфраструктуры и уровнем трудовых ресурсов: г. Истра (Россия, Московская область), г. Хорол (Украина, Полтавская область) и г. Волковыск
+
+5 октября 1970 года
+Ввод в эксплуатацию Волковысского молочно-консервного комбината детских продуктов
+
+Октябрь 1970 года
+Выпуск первой продукции: детские смеси «Малютка» и «Малыш»
+
+1977 год
+Создание цеха по производству заменителя цельного молока
+
+Февраль 1991 года
+Комбинат преобразован в арендное предприятие «Беллакт»
+
+Декабрь 1991 года
+Комбинат преобразован в народное предприятие «Беллакт» с изменением формы собственности
+
+2006 — 2010 года
+Принят Указ Президента Республики Беларусь от 15 мая 2006 года № 318 о продлении программы «Дети Беларуси» . Проведена модернизация существующего оборудования по производству детского питания и приобретено оборудование для изготовления новых видов детского питания (быстрорастворимые каши)
+
+Компания «Беллакт» — единственный в Беларуси и один из крупнейших на территории СНГ производителей сухого детского питания. Это современное, высокотехнологичное предприятие, производящее детское питание, молочные продукты, питание для беременных и кормящих женщин.
+           <p> Продукция 
+            <p></p>• Чайный напиток для кормящих мам;
+            <p> • Детские смеси;
+                <p>• Продукты прикорма;
+                    <p>• Глазированные сырки;                        <p> • Коктейли;
+                            <p> • Молоко;
+                                <p>• Сливки;
+                                <p>• Кефир;
+                                <p>• Ряженка;
+                                <p>• Сметана;
+                                <p>• Масло;
+                                <p>• Творог, творог зернистый;
+                                <p>• Глазированные и творожные десерты; Глазированные и творожные десерты;
+                                <p>• Panna Cotta;
+                                <p>• Готовые к  употреблению молочные каши;
+                                <p>• Мягкие  сыры;
+                                <p>• Полуфабрикаты из творога;
+                                <p>• Десерт;
+                                    <p>• Десертные пасты.</p> 
+    </section> 
+ 
+    <section> 
+        <h2>Фото</h2> 
+        <div class="service-slider"> 
+            <div class="service"> 
+                <img src="assets/images/s65.jpg" alt="Service 2"> 
+                <a href=" https://www.bellakt.com/" target="_blank"><button class="service-button">Официальный сайт</button></a> 
+            </div> 
+            <div class="service"> 
+                <img src="assets/images/s66.jpg" alt="Service 3"> 
+            </div> 
+        </div> 
+    </section> 
+     
+ 
+</body> 
+</html> 
+            </div> 
+        </div> 
+    </section> 
+            </div> 
+        </div> 
+    </section> 
+ 
+     
+</div> 
+ 
+</body> 
+</html>

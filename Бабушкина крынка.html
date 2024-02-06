@@ -1,0 +1,522 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>ОАО «Бабушкина крынка»</title> 
+     
+    <style> 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        nav { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+            margin: 0 20px; 
+            transition: color 0.3s, background-color 0.3s, transform 0.3s; 
+            padding: 10px; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            display: inline-block; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        nav a:hover { 
+            color: #fff; 
+            background-color: #c00; 
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        } 
+ 
+        nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+         nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        .container { 
+            max-width: 800px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            border-radius: 10px; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px;
+margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+         
+    </style> 
+    
+</head> 
+<body> 
+ 
+<div class="container"> 
+    <header> 
+        <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style> 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0);
+opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px; 
+            margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+ 
+        .home-button { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            z-index: 1000; 
+        } 
+ 
+        .home-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+        .container { 
+            max-width: 800px; /* Максимальная ширина контейнера */ 
+            margin: 0 auto; /* Центрирование контейнера по горизонтали */ 
+            padding: 0 20px; /* Добавление отступов по бокам для красивого оформления */ 
+        } 
+        .text-justify { 
+            text-align: justify; /* Выравнивание текста по ширине */ 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<a href="index.html" class="home-button">Главная</a> 
+ 
+<div class="container"> 
+    <h1>ОАО «Бабушкина крынка»</h1> 
+    </header> 
+    <section> 
+        <h2></h2> 
+        <p class="text-justify">ОАО "Бабушкина крынка" изначально являлось Могилевским молочным комбинатом(ММК), который был построен в 1979 году для переработки сырья (молока) в регионе и производства основных видов молочной продукции.
+Решением Могилевского облисполкома №15-6 от 28.09.1995 г. преобразован в открытое акционерное общество «Могилевский молочный комбинат».
+Решением Могилевского облисполкома №5-12 от 14.03.2006 г. ОАО «Могилевский молочный комбинат» переименовано в открытое акционерное общество «Бабушкина крынка».
+Решением внеочередного общего собрания акционеров 7 декабря 2012 года, протокол №69, ОАО «Бабушкина крынка» является правопреемником и переименовано в Открытое акционерное общество «Бабушкина крынка» – управляющая компания холдинга «Могилёвская молочная компания «Бабушкина крынка» (далее – ОАО «Бабушкина крынка») и зарегистрировано 13 декабря 2012 г. в Администрации Октябрьского района г. Могилёва.
+В состав ОАО «Бабушкина крынка» входят следующие филиалы и производственные цеха: цех по производству сыров, (г. Белыничи), филиал «Быховский», филиал «Славгородский», филиал «Бобруйский», филиал «Мстиславский», филиал «Осиповичский», филиал «Кировский», филиал «Дрибинский», филиал «Кричевский», филиал «Круглянский», филиал «Краснопольский», филиал «Костюковичский», филиал «Глусский», филиал «Кличевский», производственный цех «Чаусский», филиал «Климовичский».
+В настоящее время ОАО «Бабушкина крынка» – один из крупнейших производителей натуральной молочной продукции в Республике Беларусь. Производственные мощности организации позволяют перерабатывать до 3000 тонн молока в сутки. Сырьевая зона охватывает 18 из 21 района Могилевской области. Постоянная работа по улучшению качества закупаемого молока, строжайший контроль за качеством используемых припасов и материалов, неукоснительное соблюдение технологических режимов и контроль за санитарным состоянием цехов и участков, умелые руки специалистов-профессионалов — все это позволило ОАО «Бабушкина крынка» стать несомненным лидером молочной промышленности, активно конкурирующим на внутреннем и зарубежных рынках.
+
+Открытое акционерное общество «Бабушкина крынка» — крупный производитель натуральной молочной продукции в Белоруссии. Производственные ресурсы предприятия позволяют переработать до 3000 тонн молока в сутки, а сырьевая зона охватывает 18 из 21 района Могилёвской области. Основной продукцией ОАО «Бабушкина крынка» является: молоко, молоко сухое обезжиренное, масло сливочное, сыр твёрдый, полутвёрдый и мягкий, кефир, сметана, творог, сливки питьевые, йогурт термизированный и питьевой, сырки глазированные; мороженое, заменитель цельного молока (ЗЦМ). Всего компания производит более 300 наименований продукции.
+           <p> Продукция 
+            <p></p>• Молоко сухое обезжиренное;
+            <p> • Масло сливочное;
+                <p>• Сыр твердый и полутвердый;
+                    <p>• Сыры мягкие;                        <p> •  Кефир;
+                            <p> • Сметана;
+                                <p>• Творог;
+                                <p>• Сливки питьевые;
+                                <p>• Йогурт термизированный и питьевой;
+                                <p>• Сырки глазированные;
+                                <p>• Мороженое;                                <p>• Майонез;
+
+                                    <p>• Заменитель цельного молока.</p> 
+    </section> 
+ 
+    <section> 
+        <h2>Фото</h2> 
+        <div class="service-slider"> 
+            <div class="service"> 
+                <img src="assets/images/s67.jpg" alt="Service 2"> 
+                <a href="https://babushkina.by/" target="_blank"><button class="service-button">Официальный сайт</button></a> 
+            </div> 
+            <div class="service"> 
+                <img src="assets/images/s68.jpg" alt="Service 3"> 
+            </div> 
+        </div> 
+    </section> 
+     
+ 
+</body> 
+</html> 
+            </div> 
+        </div> 
+    </section> 
+            </div> 
+        </div> 
+    </section> 
+ 
+     
+</div> 
+ 
+</body> 
+</html>

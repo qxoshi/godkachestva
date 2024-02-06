@@ -1,0 +1,545 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>«Булочно-кондитерская компания «Домочай» </title> 
+     
+    <style> 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        nav { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+            margin: 0 20px; 
+            transition: color 0.3s, background-color 0.3s, transform 0.3s; 
+            padding: 10px; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            display: inline-block; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        nav a:hover { 
+            color: #fff; 
+            background-color: #c00; 
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        } 
+ 
+        nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+         nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        .container { 
+            max-width: 800px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            border-radius: 10px; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto;
+width: 300px;
+
+margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+         
+    </style> 
+    
+</head> 
+<body> 
+ 
+<div class="container"> 
+    <header> 
+        <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style> 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% {
+transform: translateX(0);
+
+opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px; 
+            margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+ 
+        .home-button { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            z-index: 1000; 
+        } 
+ 
+        .home-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+        .container { 
+            max-width: 800px; /* Максимальная ширина контейнера */ 
+            margin: 0 auto; /* Центрирование контейнера по горизонтали */ 
+            padding: 0 20px; /* Добавление отступов по бокам для красивого оформления */ 
+        } 
+        .text-justify { 
+            text-align: justify; /* Выравнивание текста по ширине */ 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<a href="index.html" class="home-button">Главная</a> 
+ 
+<div class="container"> 
+    <h1>«Булочно-кондитерская компания «Домочай» </h1> 
+    </header> 
+    <section> 
+        <h2></h2> 
+        <p class="text-justify">ОАО «Булочно-кондитерская компания «Домочай» образован в 1927 году в соответствии с постановлением ЦИК и СНК БССР №391 от 29.06.27 года в системе Наркомата пищевой промышленности БССР.
+Имея свою розничную торговую сеть с 1930 года стал именоваться «Могилевский хлебокомбинат имени 10 летия  освобождения Белоруссии от    белополяков» и перешел в подчинение Белорусского Государственного треста хлебопекарной промышленности (Белхлебтреста).
+
+В 1932 году был введен в эксплуатацию хлебозавод №1 (ул. Быховская, 159), а в 1939 году на базе мехпекарни реконструирован хлебозавод № 2 (ул. Первомайская, 135).
+
+В 1940 году Могилевский хлебокомбинат передан в ведение Могилевского областного треста хлебопечения.
+
+В период Великой Отечественной войны комбинат не функционировал.
+
+В июле 1944 года хлебокомбинат возобновил свою деятельность с непосредственным подчинением Могилевскому областному тресту «Белглавхлеба».
+
+В декабре 1950 года Могилевский хлебокомбинат перешел в непосредственное подчинение Белорусского государственного треста хлебопекарной промышленности «Белглавхлебтреста» Министерства пищевой промышленности БССР.
+
+С 1976 года Могилевский хлебокондитерский комбинат и Бобруйский хлебокомбинат стали именоваться хлебозаводами.  
+
+2001
+Хлебный дар
+РУПП «МОГИЛЕВХЛЕБПРОМ»
+Могилевское областное производственное объединение хлебопекарной промышленности переименовано в РУПП «Могилевхлебпром»  продовольствия.
+
+
+2014
+Сделано с теплом
+ДОМОЧАЙ
+27 января 2014 г. РУПП «Могилевхлебпром» преобразовано в ОАО «Булочно-кондитерская компания «ДОМОЧАЙ»
+
+ОАО «Булочно-кондитерская компания «Домочай» является самым крупным производителем хлебобулочных и кондитерских изделий в Могилевской области. Три производства объединения находятся в Могилеве, одно в Быхове и пять филиалов расположены в районных центрах.
+
+Предприятие специализируется на производстве широкого ассортимента хлебобулочных и кондитерских изделий, в том числе диетической и обогащенной продукции.
+
+Кондитерские изделия представлены пряниками, овсяным, сахарным печеньем, мучными и сахарными сладостями, тортами, пирожными, традиционными итальянскими «таралли», «гриссини», «кростини», а также линейкой крекеров.
+
+Филиалы выпускают дополнительно плодово-ягодное вино, солод, повидло, безалкогольные напитки, чайный напиток.
+
+Благодаря высокому качеству продукция конкурентоспособна не только в своем регионе, но и за его пределами. Девиз предприятия: «Мы делаем продукцию с теплом и заботой о вас».
+           <p> Продукция 
+            <p></p>• Хлеб;
+            <p> • Караваны;
+                <p>• Торты;
+                    <p>• Пироги;                        <p> • Лепешки;
+                            <p> • Лаваши;
+                                    <p>• Сладости.</p> 
+    </section> 
+ 
+    <section> 
+        <h2>Фото</h2> 
+        <div class="service-slider"> 
+            <div class="service"> 
+                <img src="assets/images/s111.jpg" alt="Service 2"> 
+                <a href="https://domochay.by/" target="_blank"><button class="service-button">Официальный сайт</button></a> 
+            </div> 
+            <div class="service"> 
+                <img src="assets/images/s112.jpg" alt="Service 3"> 
+            </div> 
+        </div> 
+    </section> 
+     
+ 
+</body> 
+</html> 
+            </div> 
+        </div> 
+    </section> 
+            </div> 
+        </div> 
+    </section> 
+ 
+     
+</div> 
+ 
+</body> 
+</html>

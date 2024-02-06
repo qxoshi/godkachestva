@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website</title>
+		 <!-- Theme CSS -->  
+		 <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+		 <style>
+		 		  style>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: #c00;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            margin: 0 20px;
+            transition: color 0.3s, background-color 0.3s, transform 0.3s;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a:hover {
+            color: #fff;
+            background-color: #c00;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a.active {
+            color: #fff;
+            background-color: #c00;
+        }
+
+        section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #c00;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            width: calc(33.33% - 20px);
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .service h3 {
+            color: #c00;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        .sub-tab {
+            position: relative;
+        }
+
+        .sub-tab::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: transparent;
+            transition: background-color 0.3s;
+        }
+
+        .sub-tab.active::after {
+            background-color: #c00;
+        }
+
+        /* Стили для выпадающего меню */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #c00;
+            color: #fff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: center; /* Выравнивание вкладок по центру */
+        }
+
+        .dropdown {
+            margin-right: 10px; /* Расстояние между вкладками */
+        }
+		.logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+body {
+    background-image: url('assets/images/фон.jpg');
+    background-size: cover; /* чтобы изображение заполняло всю область */
+    background-repeat: no-repeat; /* чтобы изображение не повторялось */
+    background-attachment: fixed; /* чтобы фон оставался неподвижным при прокрутке */
+}
+.container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px; /* Для скругления углов */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="active">Главная</a>
+    </nav>
+
+    <nav class="tabs-container">
+        <div class="dropdown">
+            <a href="#" class="sub-tab dropdown-toggle">Тяжелая промышленность</a>
+            <div class="dropdown-content">
+                <a href="Машиностроение.html" class="sub-tab" data-target="тяжелая промышленность">Машиностроение</a>
+                <a href="Химическая промышленность.html" class="sub-tab" data-target="тяжелая промышленность">Химическая промышленность</a>
+                <a href="Горно-рудная промышленность.html" class="sub-tab" data-target="тяжелая промышленность">Горно-рудная промышленность</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="sub-tab dropdown-toggle">Легкая промышленность</a>
+            <div class="dropdown-content">
+                <a href="Бренды одежды.html" class="sub-tab" data-target="легкая промышленность">Бренды одежды</a>
+                <a href="Бренды косметики и парфюмерии.html" class="sub-tab" data-target="легкая промышленность">Бренды косметики и парфюмерии</a>
+				<a href="Бренды обуви.html" class="sub-tab" data-target="легкая промышленность">Бренды обуви</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="sub-tab dropdown-toggle">Пищевая промышленность</a>
+            <div class="dropdown-content">
+                <a href="Молочная.html" class="sub-tab" data-target="пищевая промышленность">Молочная</a>
+                <a href="Консервная.html" class="sub-tab" data-target="пищевая промышленность">Консервная</a>
+                <a href="Кондитерская.html" class="sub-tab" data-target="пищевая промышленность">Кондитерская</a>
+                <a href="Винодельческая.html" class="sub-tab" data-target="пищевая промышленность">Винодельческая</a>
+				<a href="Хлебопекарная.html" class="sub-tab" data-target="пищевая промышленность">Хлебопекарная</a>
+                <a href="Масложировая.html" class="sub-tab" data-target="пищевая промышленность">Масложировая</a>
+                <a href="Рыбная.html" class="sub-tab" data-target="пищевая промышленность">Рыбная</a>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
+
+<body>    
+	<header class="header fixed-top">
+		<div class="branding docs-branding">
+			<div class="container-fluid position-relative py-2">
+				<!-- Ваш логотип -->
+				<img src="assets/images/LOGO.jpg" width="110" height="85" alt="logo" class="logo">
+				<div class="docs-top-utilities d-flex justify-content-end align-items-center">
+					<!-- Ваши верхние утилиты, например, кнопка -->
+				</div><!--//docs-top-utilities-->
+			</div><!--//container-->
+		</div><!--//branding-->
+	</header><!--//header-->
+    
+    
+    <div class="page-header theme-bg-dark py-5 text-center position-relative" style="background-color: #408013 !important;">
+		<h1 class="page-heading single-col-max mx-auto">По - Белорусски - уже значит качественно</h1>
+		    <div class="page-intro single-col-max mx-auto"></div>
+		    <div class="main-search-box pt-3 d-block mx-auto">
+				<form class="search-form w-100"></form>
+				<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 5;
+            background-color: #f9f9f9;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #resultsContainer {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #resultsContainer li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        #resultsContainer li:last-child {
+            border-bottom: none;
+        }
+
+        #resultsContainer li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+	</form>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Поиск...">
+        <ul id="resultsContainer"></ul>
+    </div>
+	<script>
+        const content = [
+        { title: "elema", url: "elema.html", content: "This is the content of page 1." }, 
+            { title: "ОАО Свiтанак", url: "Свiтанак.html", content: "This is the content of page 2." }, 
+            { title: "ОАО Полесье", url: "Полесье.html", content: "This is the content of page 3." }, 
+   { title: "ОАО БЕЛАЗ", url: "БЕЛАЗ.html", content: "This is the content of page 2." }, 
+   { title: "ОАО МАЗ", url: "МАЗ.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Белшина", url: "Белшина.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Минский тракторный завод", url: "Минский тракторный завод.html", content: "This is the content of page 2." }, 
+   { title: "ОАО НАФТАН", url: "НАФТАН.html", content: "This is the content of page 2." }, 
+   { title: "РУП Белоруснефть", url: "Белоруснефть.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Гродно Азот", url: "Гродно Азот.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Гомельский химический завод", url: "Гомельский химический завод.html", content: "This is the content of page 2." }, 
+   { title: "ОАО БЕЛХИМ", url: "БЕЛХИМ.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Доломит", url: "Доломи́т.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Гатча-Осовский", url: "Гатча-Осовский.html", content: "This is the content of page 2." }, 
+   { title: "РУП Гроднооблгаз", url: "Гроднооблгаз.html", content: "This is the content of page 2." }, 
+   { title: "РУПП Гранит", url: "Гранит.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Савушкин продукт", url: "Савушкин продукт.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Беллакт", url: "Беллакт.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Бабушкина крынка", url: "Бабушкина крынка.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Слуцкий сыродельный комбинат", url: "Слуцкий сыродельный комбинат.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Молочный Мир", url: "Молочный Мир.html", content: "This is the content of page 2." }, 
+   { title: "ОАО ДОМОЧАЙ", url: "ДОМОЧАЙ.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Жодинский хлебозавод", url: "Жодинский хлебозавод.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Витебскхлебпром", url: "Витебскхлебпром.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Берестейский пекарь", url: "Берестейский пекарь.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Полоцкий хлебозавод", url: "Полоцкий хлебозавод.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Оазис", url: "Оазис.html", content: "This is the content of page 2." }, 
+   { title: "ООО Рольник", url: "Рольник.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Малоритский консервноовощесушильный комбинат", url: "Малоритский консервноовощесушильный комбинат.html", content: "This is the content of page 2." }, 
+   { title: "ИООО Кировский пищевой комбинат", url: "Кировский пищевой комбинат.html", content: "This is the content of page 2." }, 
+   { title: "СООО BELWEST", url: "BELWEST.html", content: "This is the content of page 2." }, 
+   { title: "ООО Marko", url: "Marko.html", content: "This is the content of page 2." }, 
+   { title: "ЗАО Шаговита", url: "Шаговита.html", content: "This is the content of page 2." }, 
+   { title: "СЗАО Отико", url: "Отико.html", content: "This is the content of page 2." }, 
+   { title: "ЗАО Dilis", url: "Dilis.html", content: "This is the content of page 2." }, 
+   { title: "ОДО БЕЛИТА", url: "БЕЛИТА.html", content: "This is the content of page 2." }, 
+   { title: "ООО Люкс-Визаж", url: "Люкс-Визаж.html", content: "This is the content of page 2." }, 
+   { title: "СОАО Модум", url: "Модум.html", content: "This is the content of page 2." },
+{ title: "ООО Флоралис", url: "Флоралис.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Красный пищевик", url: "Красный пищевик.html", content: "This is the content of page 2."
+
+}, 
+   { title: "ОАО Слодыч", url: "Кондитерская фабрика Слодыч.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Спартак", url: "Спартак.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Коммунарка", url: "Коммунарка.html", content: "This is the content of page 2." }, 
+   { title: "КПУП Витьба", url: "Витьба.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Пинский винодельческий завод", url: "Пинский винодельческий завод.html", content: "This is the content of page 2." }, 
+   { title: "РУП Толочинский завод", url: "Толочинский завод.html", content: "This is the content of page 2." }, 
+   { title: "ООО Винокурня Нарочь", url: "Винокурня Нарочь.html", content: "This is the content of page 2." }, 
+   { title: "ЗАО Минский завод виноградных вин", url: "Минский завод виноградных вин.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Гомельский винодельческий завод", url: "Гомельский винодельческий завод.html", content: "This is the content of page 2." }, 
+   { title: "ООО Санта Импэкс Брест", url: "Санта Импэкс Брест.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Рыбхоз Волма", url: "Рыбхоз Волма.html", content: "This is the content of page 2." }, 
+   { title: "ОАО БЕЛРЫБА", url: "БЕЛРЫБА.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Витебский маслоэкстракционный завод", url: "Витебский маслоэкстракционный завод.html", content: "This is the content of page 2." }, 
+   { title: "ОАО Гомельский жировой комбинат", url: "Гомельский жировой комбинат.html", content: "This is the content of page 2." } 
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const resultsContainer = document.getElementById('resultsContainer');
+
+        function search(query) {
+            const filteredResults = content.filter(item => {
+                const titleMatch = item.title.toLowerCase().includes(query.toLowerCase());
+                const contentMatch = item.content.toLowerCase().includes(query.toLowerCase());
+                return titleMatch || contentMatch;
+            });
+
+            displayResults(filteredResults);
+        }
+
+        function displayResults(results) {
+            resultsContainer.innerHTML = '';
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<li>No results found.</li>';
+            } else {
+                results.forEach(result => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = result.url;
+                    link.textContent = result.title;
+                    listItem.appendChild(link);
+                    resultsContainer.appendChild(listItem);
+                });
+            }
+        }
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value;
+            search(query);
+        });
+    </script>
+		        </form>
+             </div>
+	    </div>
+    </div><!--//page-header-->
+   <div class="page-content">
+	    <div class="container">
+		    <div class="docs-overview py-5">
+			    <div class="row justify-content-center">
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+						
+								        <i class="fas fa-map-signs"></i>
+							        </span><!--//card-icon-holder-->
+                                    <span class="card-title-text">ОАО "Пинский винодельческий завод“</span>
+                                    <img src="assets/images/лого48.png" alt="ОАО Пинский винодельческий завод" class="card-img-top mb-3">
+							    </h5>
+							    <div class="card-text">
+									
+								</div>
+							    <a class="card-link-mask" href="Пинский винодельческий завод.html"></a>
+							</div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								
+								        <i class="fas fa-tablet-alt"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">РУП "Толочинский завод"</span>
+                                    <img src="assets/images/лого49.png" alt="РУП Толочинский завод" class="card-img-top mb-3">
+							    </h5>
+							    <div class="card-text">
+                                </div>
+							    <a class="card-link-mask" href="Толочинский завод.html"></a>
+							</div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+							
+								        <i class="fas fa-book-reader"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">ООО "Винокурня Нарочь"</span>
+                                    <img src="assets/images/лого50.png" alt="ООО Винокурня Нарочь" class="card-img-top mb-3">
+							    </h5>
+							    <div class="card-text">
+									
+								</div>
+							    <a class="card-link-mask" href="Винокурня Нарочь.html"></a>
+							</div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+							
+								        <i class="fas fa-lightbulb"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">ЗАО "Минский завод виноградных вин"</span>
+                                    <img src="assets/images/лого51.png" alt="ЗАО Минский завод виноградных вин" class="card-img-top mb-3">
+							    </h5>
+							    <div class="card-text">
+									
+								</div>
+							    <a class="card-link-mask" href="Минский завод виноградных вин.html"></a>
+							</div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+					
+								        <i class="fas fa-tablet-alt"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">КДУП "Гомельский винодельческий завод"</span>
+                                    <img src="assets/images/лого52.png" alt="КДУП Гомельский винодельческий завод" class="card-img-top mb-3">
+							    </h5>
+							    <div class="card-text">
+									
+								</div>
+							    <a class="card-link-mask" href="Гомельский винодельческий завод.html"></a>
+						

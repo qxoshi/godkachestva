@@ -1,0 +1,527 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>РУПП "Полоцкий хлебозавод"</title> 
+     
+    <style> 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        nav { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+            margin: 0 20px; 
+            transition: color 0.3s, background-color 0.3s, transform 0.3s; 
+            padding: 10px; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            display: inline-block; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        nav a:hover { 
+            color: #fff; 
+            background-color: #c00; 
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        } 
+ 
+        nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+         nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        .container { 
+            max-width: 800px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            border-radius: 10px; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px;
+margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+         
+    </style> 
+    
+</head> 
+<body> 
+ 
+<div class="container"> 
+    <header> 
+        <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style> 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0);
+opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px; 
+            margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+ 
+        .home-button { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            z-index: 1000; 
+        } 
+ 
+        .home-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+        .container { 
+            max-width: 800px; /* Максимальная ширина контейнера */ 
+            margin: 0 auto; /* Центрирование контейнера по горизонтали */ 
+            padding: 0 20px; /* Добавление отступов по бокам для красивого оформления */ 
+        } 
+        .text-justify { 
+            text-align: justify; /* Выравнивание текста по ширине */ 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<a href="index.html" class="home-button">Главная</a> 
+ 
+<div class="container"> 
+    <h1>РУПП "Полоцкий хлебозавод"</h1> 
+    </header> 
+    <section> 
+        <h2></h2> 
+        <p class="text-justify">РУПП "Витебскхлебпром" или 
+Полоцкий хлебозавод был построен в 1933 году мощностью 30 тонн хлебобулочных изделий в сутки. Во время Великой Отечественной войны хлебозавод был полностью разрушен. Восстановление его началось в 1944 году.
+В 1996 г. закончено строительство второго хлебозавода, на котором установлены 3 технологические линии с печами БН-25.
+
+В 1980-90 гг. на хлебозаводе №1 с целью увеличения выпуска хлебобулочных изделий произведена замена печей ФТЛ-2 на ХПА-40, построено новое дрожжевое отделение и помещение производственных бункеров, а также склад бестарного хранения муки открытого типа.
+
+В период с 2002 г. по 2009 г. проведена большая работа по модернизации предприятия:. осуществлен перевод хлебопекарных печей на газообразное топливо, установлена новая линия по производству пастообразной продукции в мелкой расфасовке(соусов, горчицы, повидло, джемы), смонтирована и запущена линия по производству мелкоштучных и хлебобулочных изделий в цехе №1. Приобретены 2 ротационные газовые хлебопекарные печи «Bassanina» (Италия) модели ROTOR-89, введены в эксплуатацию печи ППЦ-238 в цехе №1, произведена замена 2-х печей ФТЛ-1 на расстойно-печной агрегат Г4-РПА-12.
+
+В 2008-2009 гг. произведена реконструкция цеха №2 и введена в эксплуатацию линия французской компании «Clextral» по изготовлению экструзионной продукции (ржано-пшеничных хлебцев с начинкой и без начинки). Мощность линии составляет 120-130 кг/ч (хлебцы без начинки), 150 кг/ч (хлебцы с начинкой).
+
+В 2007 году на филиале РУПП «Витебскхлебпром» Полоцкий хлебозавод разработанаи внедрена система менеджмента качества, которая распространяется на производство хлебобулочных изделий и соответствует требованиям СТБ ИСО 9001-2001. Все хлебобулочные изделия, выпускаемые на предприятии сертифицированы.
+В 2010 г. проведена реконструкция котельной цеха №2 с переводом на газообразное топливо, модернизирована система отопления.
+
+В 2011 г. установлена новая линия по производству подовых хлебов на базе печи РРР-2,1.25.211 Du,R.ST
+Ассортимент выпускаемой продукции: хлеб, булочные изделия, хлеб для тостов, бараночные изделия, сухари сдобные, сухари панировочные, кондитерские изделия, соусы, горчица, экструзионная продукция, тесто слоеное дрожжевое.
+
+Полоцкий хлебозавод - один из старейших заводов в отрасли. Производство богато традициями и профессиональными секретами. Предприятие производит продукцию, которая всегда пользуется спросом. В условиях ужесточения конкуренции предприятием постоянно решаются задачи освоения новых рынков сбыта, обеспечения высокого качества и безопасности продукции, расширения ее ассортимента, обеспечения стабильности технологических процессов. На заводе проводится огромная работа по модернизации производства и обновлению оборудования, что позволяет стабильно выпускать продукцию высокого качества и увеличивать объемы выпуска. 
+В настоящее время Полоцкий хлебозавод является сложным технологическим комплексом, который оснащён новейшим оборудованием, включая оборудование «Clextral» (Франция) по производству экструзионных хлебцев.
+            <p> Продукция 
+            <p></p>• Хлебобулочные изделия;
+            <p> • Сухарно-бараночные изделия;
+                <p>•  Сухари панировочные;
+                    <p>• Хлебцы экструзионные;                        <p> • Полоски кондитерские «ле хрустье»
+                            <p> • Трубочки вафельные «ле хрустье»;
+                                <p>• Кондитерские изделия;
+                                    <p>• Торты.</p>    
+ </section> 
+ 
+    <section> 
+        <h2>Фото</h2> 
+        <div class="service-slider"> 
+            <div class="service"> 
+                <img src="assets/images/s133.jpg" alt="Service 2"> 
+                <a href="http://polhlebz.by/http://polhlebz.by/" target="_blank"><button class="service-button">Официальный сайт</button></a> 
+            </div> 
+            <div class="service"> 
+                <img src="assets/images/s134.jpg" alt="Service 3"> 
+            </div> 
+        </div> 
+    </section> 
+     
+ 
+</body> 
+</html> 
+            </div> 
+        </div> 
+    </section> 
+            </div> 
+        </div> 
+    </section> 
+ 
+     
+</div> 
+ 
+</body> 
+</html>

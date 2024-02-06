@@ -1,0 +1,20 @@
+.search-container {
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+#resultsContainer {
+    list-style-type: none;
+    padding: 0;
+}
+
+#resultsContainer li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+#resultsContainer li a {
+    text-decoration: none;
+    color: #333;
+}

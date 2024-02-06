@@ -1,0 +1,543 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>РУП "Гранит"</title> 
+     
+    <style> 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        nav { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        nav a { 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+            margin: 0 20px; 
+            transition: color 0.3s, background-color 0.3s, transform 0.3s; 
+            padding: 10px; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            display: inline-block; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        nav a:hover { 
+            color: #fff; 
+            background-color: #c00; 
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        } 
+ 
+        nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+         nav a.active { 
+            color: #fff; 
+            background-color: #c00; 
+        } 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        .container { 
+            max-width: 800px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+            border-radius: 10px; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px;
+margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+         
+    </style> 
+    
+</head> 
+<body> 
+ 
+<div class="container"> 
+    <header> 
+        <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style> 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f2f2f2; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            color: #333; 
+        } 
+ 
+        header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+        } 
+ 
+        header h1 { 
+            color: #c00; 
+            font-size: 36px; 
+            margin-bottom: 10px; 
+            position: relative; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            opacity: 0; 
+            animation: fadeIn 0.5s ease forwards; 
+        } 
+ 
+        @keyframes fadeIn { 
+            0% { 
+                opacity: 0; 
+            } 
+            100% { 
+                opacity: 1; 
+            } 
+        } 
+ 
+        section:last-child { 
+            border-bottom: none; 
+            margin-bottom: 0; 
+            padding-bottom: 0; 
+        } 
+ 
+        section h2 { 
+            color: #c00; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+            position: relative; 
+            padding-bottom: 10px; 
+            animation: slideLeft 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideLeft { 
+            0% { 
+                transform: translateX(-50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateX(0);
+opacity: 1; 
+            } 
+        } 
+ 
+        section h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 50px; 
+            height: 2px; 
+            background-color: #c00; 
+        } 
+ 
+        section p { 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .service-slider { 
+            display: flex; 
+            overflow-x: auto; 
+            margin-bottom: 20px; 
+            scroll-snap-type: x mandatory; 
+        } 
+ 
+        .service { 
+            flex: 0 0 auto; 
+            width: 300px; 
+            margin-right: 20px; 
+            background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s; 
+            scroll-snap-align: start; 
+            animation: slideUp 0.5s ease forwards; 
+            opacity: 0; 
+        } 
+ 
+        @keyframes slideUp { 
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0; 
+            } 
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            } 
+        } 
+ 
+        .service:last-child { 
+            margin-right: 0; 
+        } 
+ 
+        .service:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .service img { 
+            width: 100%; 
+            border-radius: 5px; 
+        } 
+ 
+        .service h3 { 
+            color: #c00; 
+            font-size: 20px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service p { 
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .service-button { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 10px; 
+        } 
+ 
+        .service-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            color: #777; 
+            margin-top: 50px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        } 
+ 
+        footer p { 
+            margin-bottom: 0; 
+        } 
+ 
+        .home-button { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background-color: #c00; 
+            color: #fff; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            transition: background-color 0.3s, transform 0.3s; 
+            z-index: 1000; 
+        } 
+ 
+        .home-button:hover { 
+            background-color: #9c0000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        } 
+        .container { 
+            max-width: 800px; /* Максимальная ширина контейнера */ 
+            margin: 0 auto; /* Центрирование контейнера по горизонтали */ 
+            padding: 0 20px; /* Добавление отступов по бокам для красивого оформления */ 
+        } 
+        .text-justify { 
+            text-align: justify; /* Выравнивание текста по ширине */ 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<a href="index.html" class="home-button">Главная</a> 
+ 
+<div class="container"> 
+    <h1> РУП "Гранит"</h1> 
+    </header> 
+    <section> 
+        <h2></h2> 
+        <p class="text-justify">РУП "Гранит" занималось добычей и переработкой плотных горных пород. 21 октября 1973 года был произведен первый взрыв мощностью не более двух тонн взрывчатого вещества (сейчас производятся взрывы до 100 тонн и более), но именно он возвестил о рождении крупнейшего карьера в Беларуси.
+            Завод-гигант рос на глазах... Строителям и эксплуатационникам пришлось приложить немало труда, настойчивости, чтобы было все во время, несмотря на трудности, которые постоянно приходилось преодолевать.
+            Географическое положение предприятия позволяло отправлять продукцию железнодорожным, автомобильным и водным транспортом.
+            В 1974 году началась отгрузка отсева и щебня водой по судоходному каналу, который соединил склады с рекой Припять.
+            В апреле 1976 года началась отгрузка продукции по железной дороге.
+            В 1980 – 1981 годах по данным детальной доразведки были определены промышленные запасы месторождения в объеме 365 млн. м³, это обеспечивает работу РУПП «Гранит» при действующих мощностях более чем на 40 лет.
+            
+            В 2008 году введена в эксплуатацию линия по переработке щебня фракции 20-40 мм для получения кубовидного щебня и линия по переработке отсевов из материалов дробления с классификациям по 3 группам.
+            
+            С 2011 г. введена в строй пятая технологическая линия. С ее пуском утвержденная мощность по щебню составила 16 000 тыс.тонн/год.
+            
+            С 11 июля 2012 года началась реализация инвестиционного проекта «Строительство горнообогатительного комбината на базе месторождения «Ситницкое» производственной мощностью по щебню 9 млн. тонн.
+            
+            За сорокалетнюю историю предприятия были построены более 25 60-, 80-, 90- квартирных жилых домов в г.п. Микашевичи для рабочих и служащих предприятия. Два детсада-ясли, больница на 100 мест, поликлиника на 300 мест, Дворец культуры, здание профилактория «Свитанок» и его медико-оздоровительный корпус, два общежития, здание физкультурно-оздоровительного комплекса, плавательный бассейн.
+            
+            На территории предприятия были построены более 50 зданий и сооружений основных и вспомогательных цехов, гаражей, также здание столовой, здание здравпункта, прачечной спецодежды.
+            
+            Предприятием ежегодно проводятся реконструкции устаревших конструкций, автомобильных дорог и капитальные ремонты помещений, зданий цехов, корпусов.
+            
+            Республиканское унитарное производственное предприятие «Гранит» (РУПП «Гранит») является крупнейшим предприятием в Европе по добыче и переработке плотных горных пород, находится в государственной собственности и подчиняется Министерству архитектуры и строительства Республики Беларусь.
+            
+            Сегодня оно выпускает более 21 млн. тонн нерудных строительных материалов в год.
+            
+            Основная деятельность предприятия направлена на обеспечение строительной индустрии строительными материалами:
+            
+            Щебень фракций 5-10 мм, 5-20 мм, 10-20 мм, 20-40 мм, 40-70 мм (ГОСТ 8267-93 «Щебень и гравий из плотных горных пород для строительных работ»);
+            
+            Щебень фракции 25-60 мм (ГОСТ 7392-2002 «Щебень из плотных горных пород для балластного слоя железнодорожного пути», ГОСТ Р 54748-2011 «Щебень из плотных горных пород для балластного слоя железнодорожного пути»);
+            
+            Отсев фракции 0-5 мм (ТУ BY 200 161 167.003-2010 «Отсев из материалов дробления горных пород»);
+            
+            Отсев фракционированный фракций 0-0,63 мм, 0,63-2,5 мм, 2,5-5 мм (ТУ BY 200 161 167.004-2013 «Отсев фракционированный из материалов дробления горных пород»);
+            
+            Щебень кубовидный фракции 5-10 мм (СТБ 1311-2002. «Щебень кубовидный из плотных горных пород»);
+            
+            Щебень европейских фракций 4/8 мм, 8/16, 4/16, 16/22, 16/31.5 (СТБ ЕН 12620-2010 «Заполнители для бетона»);
+            
+            Щебеночно-песчаная смесь для дорожного строительства марки С6 0-40 мм., С5 0-80 мм (СТБ 2318-2013 « Щебеночно-гравийно-песчаная смесь»);
+            
+            Скальная порода переработанная 0-300 мм (ТУ ВУ 200 161 167.005-2015 «Породы скальные переработанные»);
+                
+                
+ </section> 
+ 
+    <section> 
+        <h2>Фото</h2> 
+        <div class="service-slider"> 
+            <div class="service"> 
+                <img src="assets/images/s31.jpg" alt="Service 2"> 
+                <a href="https://www.granit.by" target="_blank"><button class="service-button">Официальный сайт</button></a> 
+            </div> 
+            <div class="service"> 
+                <img src="assets/images/s32.jpg" alt="Service 3"> 
+            </div> 
+        </div> 
+    </section> 
+     
+ 
+</body> 
+</html> 
+            </div> 
+        </div> 
+    </section> 
+            </div> 
+        </div> 
+    </section> 
+ 
+     
+</div> 
+ 
+</body> 
+</html>
